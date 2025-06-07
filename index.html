@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sithija Vidusara</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    /* General Styles */
+:root {
+    --primary-color: #1e90ff;
+    --primary-dark: #0066cc;
+    --primary-light: #00bfff;
+    --dark-bg: #121212;
+    --dark-section: #1a1a1a;
+    --card-bg: #333;
+    --btn-color: #45515e;
+    --text-light: #ffffff;
+    --text-muted: #cccccc;
+    --whatsapp-color: #25D366;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 60px 0;
+    text-align: center;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+    animation: headerFadeIn 1.5s ease-in-out;
+}
+
+@keyframes headerFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-content {
+    position: relative;
+    z-index: 10;
+}
+
+.degree-emoji {
+    position: absolute;
+    top: -50px;
+    font-size: 24px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid var(--text-light);
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-light);
+}
+
+.name {
+    font-size: 3.5em;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.name:hover {
+    transform: scale(1.05);
+    letter-spacing: 3px;
+}
+
+header p {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    font-weight: 400;
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(26, 26, 26, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 18px 20px;
+    display: block;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover::after {
+    width: 70%;
+}
+
+nav ul li a:hover {
+    color: var(--primary-light);
+}
+
+/* Sections */
+section {
+    padding: 40px;
+    margin: 30px auto;
+    background-color: var(--dark-section);
+    border-radius: 12px;
+    max-width: 1200px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 12px 0 0 12px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+h2:hover {
+    transform: translateX(10px);
+    color: var(--primary-light);
+}
+
+h3 {
+    color: var(--primary-light);
+    margin: 20px 0 10px;
+    font-size: 1.3em;
+}
+
+/* Introduction Section */
+#introduction p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Skills Section */
+#skills ul,
+#experience ul,
+#currentwork ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+#skills ul li,
+#experience ul li,
+#currentwork ul li {
+    background-color: var(--btn-color);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+#skills ul li:hover,
+#experience ul li:hover,
+#currentwork ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: rgba(30, 144, 255, 0.1);
+}
+
+.fas,
+.fab {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+/* Experience and Education */
+.experience-item,
+.project-item,
+.portfolio-item,
+.education-item {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid var(--primary-color);
+}
+
+.experience-item:hover,
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.date,
+.company,
+.status,
+.university {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.date::before,
+.company::before,
+.status::before,
+.university::before {
+    content: '\f073';
+    /* Calendar icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.company::before {
+    content: '\f1ad';
+    /* Building icon */
+}
+
+.university::before {
+    content: '\f19d';
+    /* Graduation cap */
+}
+
+.status::before {
+    content: '\f111';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-title {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    gap: 5px;
+}
+
+.tag {
+    background-color: rgba(30, 144, 255, 0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+.project-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.project-link:hover {
+    background-color: var(--primary-light);
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact p i {
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+#contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    font-size: 1em;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    outline: 2px solid var(--primary-color);
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: greenyellow;
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.whatsapp-button a {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #1e90ff;
+}
+
+.read-more {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.read-more:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.read-more:focus {
+    outline: none;
+}
+
+/* Gallery Styles */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    width: 300px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.1);
+}
+
+.gallery-item p {
+    padding: 10px;
+    color: #ccc;
+}
+
+.submit-btn {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #004080;
+}
+
+/* Contact Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Project and Portfolio Styles */
+.project-item, .portfolio-item {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.project-item h3, .portfolio-item p {
+    margin: 0 0 10px;
+}
+
+.project-link {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+
+</style>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume / CV</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="project.html">Projects/Portfolio</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="header-content">
+            <img src="Profile.jpg" alt="Sithija Vidusara" class="profile-pic">
+            <h1 class="name">Sithija Vidusara</h1>
+            <p>Software Engineer | Entrepreneur</p>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const header = document.querySelector("header");
+                for (let i = 0; i < 10; i++) {
+                    let emoji = document.createElement("div");
+                    emoji.innerHTML = "🎓";
+                    emoji.classList.add("degree-emoji");
+                    emoji.style.left = Math.random() * 100 + "vw";
+                    emoji.style.animationDuration = (Math.random() * 5 + 6) + "s"; /* Slower falling speed */
+                    emoji.style.animationDelay = Math.random() * 3 + "s"; /* Random delay */
+                    header.appendChild(emoji);
+                }
+            });
+        </script>
+    </header>
+
+    <section id="introduction">
+        <h2>introduction</h2>
+        <p>
+            Hello! I am <b>H.M. Sitija Vidusara Herath</b>, a dedicated and innovative software engineer with a passion
+            for
+            creating high-quality, user-centric software solutions.
+            Currently pursuing my undergraduate degree in Software Engineering, I have developed a strong foundation in
+            programming, web development, mobile application development,
+            and artificial intelligence technologies. My expertise lies primarily in SwiftUI, Java, Python, Wordpress,
+            HTNL, CSS, C#, and AI tools, which I use to build intelligent
+            applications that enhance user experience and streamline business operations. <br> <br>
+
+            Beyond my technical skills, I am an entrepreneur at heart. I run <b>SVUM</b>, a growing brand that includes
+            multiple business ventures, including a clothing store and a software company.
+            Through SVUM, I aim to combine technology with entrepreneurship, driving innovation across various
+            industries. Additionally, I am actively working on supermarket websites designed
+            to revolutionize the shopping experience for both customers and business owners. <br><br>
+
+            With experience in internships and part-time software development roles, I have honed my ability to work in
+            diverse environments, collaborate with teams, and tackle real-world challenges.
+            My soft skills, including effective communication, problem-solving, and leadership, allow me to excel in
+            both technical and business-oriented projects. <br><br>
+
+            I am constantly looking for opportunities to expand my knowledge, explore emerging technologies, and take on
+            exciting projects that push the boundaries of innovation. Whether you are
+            looking to collaborate, discuss potential business opportunities, or simply connect, I would love to hear
+            from you!
+        </p>
+    </section>
+
+    <section id="skills">
+        <a href="about.html">
+            <h2>Skills</h2>
+        </a>
+        <ul>
+            <li><i class="fas fa-code"></i> HTML, CSS, JavaScript</li>
+            <li><i class="fas fa-laptop-code"></i> React.js, Node.js</li>
+            <li><i class="fas fa-paint-brush"></i> UI/UX Design</li>
+            <li><i class="fas fa-database"></i> Database Management (MySQL, MongoDB)</li>
+        </ul>
+    </section>
+
+    <section id="experience">
+        <a href="about.html">
+            <h2>Experience</h2>
+        </a>
+        <ul>
+            <li><i class="fas fa-laptop-code"></i> Web Developer - <b>SVUM Company</b></li>
+            <li><i class="fas fa-paint-brush"></i> UI & UX Developer - <b>SVUM Company</b></li>
+            <li><i class="fas fa-desktop"></i> Desktop Software - <b>SVUM Company</b></li>
+
+        </ul>
+    </section>
+
+    <section id="currentwork">
+        <h2>Current Work</h2>
+        <ul>
+            <li><b>Founder of SVUM</b>- a brand that includes a clothing store, software development and
+                entrepreneurial projects.</li>
+            <li>Developing supermarket and other Websites.</li>
+            <li>It solutions.</li>
+            <li>Degital Marketing.</li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <a href="about.html">
+            <h2>Education</h2>
+        </a>
+        <div class="education-item">
+            <h3>Eoft Metro Campus</h3>
+            <p class="date">2024 - Present</p>
+            <p>Pearson BTEC Level 5 HND in Computing (RQF)</p>
+        </div>
+        <div class="education-item">
+            <h3>University of Moratuwa</h3>
+            <p class="date">2023 - Present</p>
+            <p>Certificate Courses - full stack developer</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <a href="contact.html">
+            <h2>Contact Me</h2>
+        </a>
+        <p><i class="fas fa-envelope"></i> Email: hmsvherath61@gmial.com</p>
+        <p><i class="fas fa-phone"></i> Phone: +94 74 042 2969</p>
+        <p><i class="fas fa-globe"></i> LinkedIn: <a
+                href="https://www.linkedin.com/in/sithija-herath-8266a9245?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0ZKcPRv2Seef%2Bx5nun0ltw%3D%3D"
+                target="_blank">linkedin.com/in/sithija-vidusara</a></p>
+        <a href="https://www.facebook.com/share/14PTwtsXmA/?mibextid=wwXIfr" target="_blank">
+            <i class="fab fa-facebook-f" style="font-size: 24px; color: #1877F2;"></i> Sithija Vidusara Herath
+        </a>
+        <br>
+        <br>
+        <a href="https://www.youtube.com/channel/UCunInepubHFFSiB81qYOUhw" target="_blank">
+            <i class="fa-brands fa-youtube" style="font-size: 24px; color: #1877F2;"></i> SVUM
+        </a>
+    </section>
+
+    <!-- Add the WhatsApp button -->
+    <div class="whatsapp-button">
+        <a href="https://wa.me/94776942969" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/sithija-herath-8266a9245?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0ZKcPRv2Seef%2Bx5nun0ltw%3D%3D"
+                target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Sithija61" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/channel/UCunInepubHFFSiB81qYOUhw" target="_blank"><i
+                    class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/share/14PTwtsXmA/?mibextid=wwXIfr" target="_blank"><i
+                    class="fab fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2023 Sithija Vidusara. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
